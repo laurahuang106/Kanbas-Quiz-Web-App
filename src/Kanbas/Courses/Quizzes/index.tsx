@@ -10,7 +10,7 @@ function Quizzes() {
       <button
         className="btn btn-danger"
         onClick={() => {
-          navigate(`/Kanbas/Courses/${courseId}/Quizzes/New`);
+          navigate(`/Kanbas/Courses/${courseId}/Quizzes/New/Questions`);
         }}
       >
         + Quiz
