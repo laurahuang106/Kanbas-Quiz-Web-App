@@ -7,7 +7,14 @@ function Quizzes() {
   return (
     <div>
       <h1>Quizzes Landing Page</h1>
-      <button className="btn btn-danger">+ Quiz</button>
+      <button
+        className="btn btn-danger"
+        onClick={() => {
+          navigate(`/Kanbas/Courses/${courseId}/quizzes/new`);
+        }}
+      >
+        + Quiz
+      </button>
 
       {/* implement quizz list screen below*/}
       {/* quiz list screen end */}
@@ -16,7 +23,7 @@ function Quizzes() {
       <button
         className="btn btn-link"
         onClick={() => {
-          navigate(`/Courses/${courseId}/Assignments/q1`);
+          navigate(`/Kanbas/Courses/${courseId}/quizzes/q1`);
         }}
       >
         Sample-Quiz
