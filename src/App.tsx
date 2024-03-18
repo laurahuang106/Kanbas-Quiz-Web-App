@@ -13,7 +13,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Navigate to="/Kanbas/Courses/1/Quizzes" />} />
+        <Route
+          path="/"
+          element={<Navigate to="/Kanbas/Courses/RS101/Quizzes" />}
+        />
         <Route path="/Kanbas/*" element={<Kanbas />} />
       </Routes>
     </Router>
