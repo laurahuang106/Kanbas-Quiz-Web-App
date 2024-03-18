@@ -7,14 +7,16 @@ function NewQuizNav() {
       <nav className="nav nav-tabs mt-2">
         <Link
           to="/Kanbas/Courses/1/Quizzes/New/Details"
-          className={`nav-link ${pathname.includes("Details") ? "active" : ""}`}
+          className={`nav-link ${
+            pathname.includes("Details") ? "active" : "text-danger"
+          }`}
         >
           Details
         </Link>
         <Link
           to="/Kanbas/Courses/1/Quizzes/New/Questions"
           className={`nav-link ${
-            pathname.includes("Questions") ? "active" : ""
+            pathname.includes("Questions") ? "active" : "text-danger"
           }`}
         >
           Questions
