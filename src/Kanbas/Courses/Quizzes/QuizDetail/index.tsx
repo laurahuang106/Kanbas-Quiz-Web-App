@@ -46,7 +46,7 @@ function QuizDetail() {
       <h2>Q1-HTML</h2>
 
       {/* quiz detail table */}
-      <table className="table ms-3 quiz-detail-table">
+      <table className="table quiz-detail-table">
         <tbody>
           <tr>
             <th>Quiz Type</th>
