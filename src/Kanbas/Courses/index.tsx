@@ -2,7 +2,7 @@ import React from "react";
 import { useParams, Routes, Route } from "react-router-dom";
 import { HiMiniBars3 } from "react-icons/hi2";
 import Quizzes from "./Quizzes";
-import QuizQuestionEditor from "./Quizzes/Editor";
+import QuizQuestionEditor from "./Quizzes/NewQuiz/NewQuizQuestions";
 import QuizDetail from "./Quizzes/QuizDetail";
 import CourseNavigation from "./Navigation";
 

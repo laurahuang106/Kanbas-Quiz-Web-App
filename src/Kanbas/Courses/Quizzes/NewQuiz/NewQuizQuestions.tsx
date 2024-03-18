@@ -37,7 +37,7 @@ const totalPoints = questionsList.reduce(
   0
 );
 
-function QuizQuestionEditor() {
+function NewQuizQuestions() {
   const navigate = useNavigate();
 
   return (
@@ -119,4 +119,4 @@ function QuizQuestionEditor() {
   );
 }
 
-export default QuizQuestionEditor;
+export default NewQuizQuestions;
