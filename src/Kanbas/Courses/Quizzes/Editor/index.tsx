@@ -16,21 +16,26 @@ export interface Question {
 
 const exampleQuestion1: Question = {
   _id: "q111",
-  title: "What is HTML?",
-  body: "Explain HTML",
+  title: "Question 1",
+  body: "What is HTML?",
   points: 5,
   type: "fill-in-blank",
 };
 
 const exampleQuestion2: Question = {
   _id: "q112",
-  title: "What does DOM stand for?",
-  body: "Explain HTML.",
-  points: 5,
+  title: "Question 2",
+  body: "What does DOM stand for?",
+  points: 10,
   type: "fill-in-blank",
 };
 
 const questionsList: Question[] = [exampleQuestion1, exampleQuestion2];
+
+const totalPoints = questionsList.reduce(
+  (sum, question) => sum + question.points,
+  0
+);
 
 function QuizQuestionEditor() {
   const navigate = useNavigate();
@@ -38,7 +43,7 @@ function QuizQuestionEditor() {
   return (
     <div>
       <div className="d-flex justify-content-end align-items-center text-center">
-        <span>Points 0</span>
+        <span>Points {totalPoints}</span>
         <span className="ms-3">
           <FaBan /> Not Published
         </span>
@@ -64,7 +69,7 @@ function QuizQuestionEditor() {
 
       <div className="d-flex justify-content-center gap-5">
         <button
-          className="btn border"
+          className="btn border d-flex align-items-center"
           onClick={() =>
             navigate(`/Kanbas/Courses/1/Quizzes/New/Questions/Multi-Choice`)
           }
@@ -72,11 +77,11 @@ function QuizQuestionEditor() {
           <FaPlus className="me-2" />
           New Question
         </button>
-        <button className="btn border">
+        <button className="btn border d-flex align-items-center">
           <FaPlus className="me-2" />
           New Question Group
         </button>
-        <button className="btn border">
+        <button className="btn border d-flex align-items-center">
           <FaSearch className="me-2" />
           Questions
         </button>

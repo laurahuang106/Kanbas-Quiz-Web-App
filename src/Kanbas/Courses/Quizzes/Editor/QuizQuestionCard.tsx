@@ -7,12 +7,12 @@ function QuizQuestionCard({ question }: { question: Question }) {
         <div className="card-header d-flex justify-content-between align-items-center">
           <span className="d-flex align-items-center">
             <i className="fas fa-ellipsis-v me-2"></i>
-            Question 1
+            {question.title}
           </span>
-          <span>5 pts</span>
+          <span>pts: {question.points}</span>
         </div>
         <div className="card-body">
-          <p className="card-text">What is HTML?</p>
+          <p className="card-text">{question.body}</p>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { useParams, useNavigate } from "react-router-dom";
+import { FaPlus } from "react-icons/fa";
 
 function Quizzes() {
   const { courseId } = useParams();
@@ -8,12 +9,13 @@ function Quizzes() {
     <div>
       <h1>Quizzes Landing Page</h1>
       <button
-        className="btn btn-danger"
+        className="btn btn-danger d-flex align-items-center"
         onClick={() => {
           navigate(`/Kanbas/Courses/${courseId}/Quizzes/New/Questions`);
         }}
       >
-        + Quiz
+        <FaPlus className="me-2" />
+        Quiz
       </button>
 
       {/* implement quizz list screen below*/}

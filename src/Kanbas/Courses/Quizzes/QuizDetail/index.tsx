@@ -12,12 +12,12 @@ function QuizDetail() {
       {/* top bar for quiz detail */}
       <div className="d-flex justify-content-end gap-1">
         <button
-          className="btn btn-success"
+          className="btn btn-success d-flex align-items-center"
           onClick={() => setPublished(!published)}
         >
           {published ? (
             <>
-              <FaBan /> Unpublished
+              <FaBan className="me-1" /> Unpublished
             </>
           ) : (
             <>
@@ -32,10 +32,10 @@ function QuizDetail() {
           Preview
         </button>
         <button
-          className="btn border"
+          className="btn border d-flex align-items-center"
           onClick={() => navigate(`/Kanbas/Courses/1/Quizzes/q1/Edit`)}
         >
-          <FaPen /> Edit
+          <FaPen className="me-1" /> Edit
         </button>
         <div className="btn border">
           <FaEllipsisV className="ms-1" />
