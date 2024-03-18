@@ -1,12 +1,40 @@
 import { FaBan, FaSearch, FaEllipsisV, FaPlus } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 import NewQuizNav from "./NewQuizNav";
+import QuizQuestionCard from "./QuizQuestionCard";
 
-const questionsList = [
-  { _id: 111, title: "What is HTML" },
-  { _id: 112, title: "What is DOM" },
-];
+export interface Question {
+  _id: string;
+  title: string;
+  body: string;
+  points: number;
+  type: string;
+}
+
+// default quesionslist should be empty, keep this line, placeholder
+// const questionsList: Question[] = [];
+
+const exampleQuestion1: Question = {
+  _id: "q111",
+  title: "What is HTML?",
+  body: "Explain HTML",
+  points: 5,
+  type: "fill-in-blank",
+};
+
+const exampleQuestion2: Question = {
+  _id: "q112",
+  title: "What does DOM stand for?",
+  body: "Explain HTML.",
+  points: 5,
+  type: "fill-in-blank",
+};
+
+const questionsList: Question[] = [exampleQuestion1, exampleQuestion2];
 
 function QuizQuestionEditor() {
+  const navigate = useNavigate();
+
   return (
     <div>
       <div className="d-flex justify-content-end align-items-center text-center">
@@ -26,16 +54,21 @@ function QuizQuestionEditor() {
         {questionsList.length === 0 ? (
           <div style={{ height: "10em" }}></div>
         ) : (
-          <ol>
-            {questionsList.map((question) => (
-              <li key={question._id}>{question.title}</li>
+          <ul>
+            {questionsList.map((question: Question) => (
+              <QuizQuestionCard key={question._id} question={question} />
             ))}
-          </ol>
+          </ul>
         )}
       </div>
 
       <div className="d-flex justify-content-center gap-5">
-        <button className="btn border">
+        <button
+          className="btn border"
+          onClick={() =>
+            navigate(`/Kanbas/Courses/1/Quizzes/New/Questions/Multi-Choice`)
+          }
+        >
           <FaPlus className="me-2" />
           New Question
         </button>
@@ -45,7 +78,7 @@ function QuizQuestionEditor() {
         </button>
         <button className="btn border">
           <FaSearch className="me-2" />
-          Icon Find Questions
+          Questions
         </button>
       </div>
       <hr />
@@ -56,9 +89,24 @@ function QuizQuestionEditor() {
           users this quiz has changed
         </label>
         <div>
-          <button className="btn border ms-2">Cancel</button>
-          <button className="btn border ms-2">Save & Publish</button>
-          <button className="btn btn-danger ms-2">Save</button>
+          <button
+            className="btn border ms-2"
+            onClick={() => navigate(`/Kanbas/Courses/1/Quizzes`)}
+          >
+            Cancel
+          </button>
+          <button
+            className="btn border ms-2"
+            onClick={() => navigate(`/Kanbas/Courses/1/Quizzes`)}
+          >
+            Save & Publish
+          </button>
+          <button
+            className="btn btn-danger ms-2"
+            onClick={() => navigate(`/Kanbas/Courses/1/Quizzes`)}
+          >
+            Save
+          </button>
         </div>
       </div>
       <hr />
