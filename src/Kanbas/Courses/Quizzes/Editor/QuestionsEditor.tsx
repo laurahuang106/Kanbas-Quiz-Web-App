@@ -1,7 +1,6 @@
-import { FaBan, FaSearch, FaEllipsisV, FaPlus } from "react-icons/fa";
+import { FaSearch, FaPlus } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
-import NewQuizNav from "./NewQuizNav";
-import QuizQuestionCard from "./QuizQuestionCard";
+import QuizQuestionCard from "./QuestionCard";
 
 export interface Question {
   _id: string;
@@ -32,29 +31,11 @@ const exampleQuestion2: Question = {
 
 const questionsList: Question[] = [exampleQuestion1, exampleQuestion2];
 
-const totalPoints = questionsList.reduce(
-  (sum, question) => sum + question.points,
-  0
-);
-
-function NewQuizQuestions() {
+function QuizQuestionsEditor() {
   const navigate = useNavigate();
 
   return (
     <div>
-      <div className="d-flex justify-content-end align-items-center text-center">
-        <span>Points {totalPoints}</span>
-        <span className="ms-3">
-          <FaBan /> Not Published
-        </span>
-        <button className="btn border ms-3">
-          <FaEllipsisV className="ms-1" />
-        </button>
-      </div>
-      <hr />
-
-      <NewQuizNav />
-
       <div>
         {questionsList.length === 0 ? (
           <div style={{ height: "10em" }}></div>
@@ -119,4 +100,4 @@ function NewQuizQuestions() {
   );
 }
 
-export default NewQuizQuestions;
+export default QuizQuestionsEditor;

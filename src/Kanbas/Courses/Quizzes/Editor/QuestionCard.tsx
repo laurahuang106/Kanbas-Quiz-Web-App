@@ -1,4 +1,4 @@
-import { Question } from "./NewQuizQuestions";
+import { Question } from "./QuestionsEditor";
 
 function QuizQuestionCard({ question }: { question: Question }) {
   return (
