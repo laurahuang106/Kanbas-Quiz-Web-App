@@ -8,6 +8,7 @@ import Quizzes from "./Quizzes";
 import QuizQuestionEditor from "./Quizzes/NewQuiz/NewQuizQuestions";
 import QuizDetail from "./Quizzes/QuizDetail";
 import CourseNavigation from "./Navigation";
+import QuizDetailEditor from "./Quizzes/QuizDetailEditor";
 
 
 function Courses({ courses }: { courses: any[] }) {
@@ -33,7 +34,7 @@ function Courses({ courses }: { courses: any[] }) {
               path="Quizzes/New/Questions"
               element={<QuizQuestionEditor />}
             />
-            {/* <Route path="Quizzes/:quizzId/Edit" element={<QuizEditor />} /> */}
+             <Route path="Quizzes/:quizzId/Details" element={<QuizDetailEditor />} />
             {/* <Route path="Quizzes/:quizzId/Preview" element={<QuizPreview />} /> */}
           </Routes>
         </div>

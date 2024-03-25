@@ -33,7 +33,7 @@ function QuizDetail() {
         </button>
         <button
           className="btn border d-flex align-items-center"
-          onClick={() => navigate(`/Kanbas/Courses/1/Quizzes/q1/Edit`)}
+          onClick={() => navigate(`/Kanbas/Courses/1/Quizzes/q1/Details`)}
         >
           <FaPen className="me-1" /> Edit
         </button>
