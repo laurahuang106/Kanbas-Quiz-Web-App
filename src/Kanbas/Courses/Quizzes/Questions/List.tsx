@@ -12,7 +12,7 @@ import {
   setPrompt,
 } from "./reducer";
 import { KanbasState } from "../../../store";
-import "../../styles.css";
+import "../../../styles.css";
 
 function QuestionList() {
   const { courseId } = useParams();
@@ -47,115 +47,59 @@ function QuestionList() {
           >
             Update
           </button>
-          <input
-            className="form-control"
-            style={{ marginBottom: "5px" }}
-            value={question.name}
-            onChange={(e) =>
-              dispatch(
-                setQuestion({
-                  ...question,
-                  name: e.target.value,
-                })
-              )
-            }
-          />
-          {/* dropdown for question type */}
-          <select
-            className="form-select"
-            value={question.type}
-            onChange={(e) =>
-              dispatch(
-                setQuestion({
-                  ...question,
-                  type: e.target.value,
-                })
-              )
-            }
-          ></select>
-          {/* input for pts */}
-          <input
-            className="form-control float-end"
-            value={question.pts}
-            onChange={(e) =>
-              dispatch(
-                setQuestion({
-                  ...question,
-                  pts: e.target.value,
-                })
-              )
-            }
-          />
-          {question.type === "true-false" && (
-            <div>
-              <label>
-                <input
-                  type="radio"
-                  name="answer"
-                  value="true"
-                  onChange={() =>
-                    dispatch(setQuestion({ ...question, answer: true }))
-                  }
-                />
-                True
-              </label>
-              <label>
-                <input
-                  type="radio"
-                  name="answer"
-                  value="false"
-                  onChange={() =>
-                    dispatch(setQuestion({ ...question, answer: false }))
-                  }
-                />
-                False
-              </label>
-            </div>
-          )}
-          {question.type === "multiple-choice" && (
-            <div>
-              <input
-                className="form-control"
-                value={question.choices[0]}
-                onChange={(e) =>
-                  dispatch(
-                    setQuestion({
-                      ...question,
-                      choices: [e.target.value, question.choices[1]],
-                    })
-                  )
-                }
-              />
-              <input
-                className="form-control"
-                value={question.choices[1]}
-                onChange={(e) =>
-                  dispatch(
-                    setQuestion({
-                      ...question,
-                      choices: [question.choices[0], e.target.value],
-                    })
-                  )
-                }
-              />
-            </div>
-          )}
-          {question.type === "fill-in-the-blank" && (
-            <div>
-              <input
-                className="form-control"
-                value={question.answer}
-                onChange={(e) =>
-                  dispatch(
-                    setQuestion({
-                      ...question,
-                      answer: e.target.value,
-                    })
-                  )
-                }
-              />
-            </div>
-          )}
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "space-between",
+              marginBottom: "5px",
+            }}
+          >
+            <input
+              className="form-control"
+              style={{ flex: 1, marginRight: "5px" }}
+              value={question.name}
+              onChange={(e) =>
+                dispatch(
+                  setQuestion({
+                    ...question,
+                    name: e.target.value,
+                  })
+                )
+              }
+            />
+
+            <select
+              className="form-select"
+              style={{ flex: 1, marginRight: "5px" }}
+              value={question.type}
+              onChange={(e) =>
+                dispatch(
+                  setQuestion({
+                    ...question,
+                    type: e.target.value,
+                  })
+                )
+              }
+            >
+              <option value="true-false">True False</option>
+              <option value="multiple-choice">Multiple Choice</option>
+              <option value="fill-in-the-blank">Fill in the Blank</option>
+            </select>
+
+            <input
+              className="form-control float-end"
+              style={{ flex: 1 }}
+              value={question.pts}
+              onChange={(e) =>
+                dispatch(
+                  setQuestion({
+                    ...question,
+                    pts: e.target.value,
+                  })
+                )
+              }
+            />
+          </div>
 
           {/* set prompt need to be changed */}
           <h4>{question.prompt}</h4>
@@ -173,6 +117,22 @@ function QuestionList() {
               )
             }
           />
+
+          <h3>Answer</h3>
+          <div>
+            <input
+              className="form-control"
+              value={question.answer}
+              onChange={(e) =>
+                dispatch(
+                  setQuestion({
+                    ...question,
+                    answer: e.target.value,
+                  })
+                )
+              }
+            />
+          </div>
         </li>
 
         {questionsList.map((question, index) => (
