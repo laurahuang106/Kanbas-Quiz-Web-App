@@ -6,6 +6,7 @@ import QuizQuestionEditor from "./Quizzes/Editor/QuestionsEditor";
 import QuizDetail from "./Quizzes/QuizDetail";
 import CourseNavigation from "./Navigation";
 import QuizEditor from "./Quizzes/Editor";
+import Questions from "./Quizzes/Questions";
 
 function Courses({ courses }: { courses: any[] }) {
   const { courseId } = useParams();
@@ -27,6 +28,7 @@ function Courses({ courses }: { courses: any[] }) {
             <Route path="Quizzes" element={<Quizzes />} />
             <Route path="Quizzes/:quizzId" element={<QuizDetail />} />
             <Route path="Quizzes/:quizzId/Edit" element={<QuizEditor />} />
+            <Route path="Quizzes/:quizzId/questions" element={<Questions />} />
             {/* <Route path="Quizzes/:quizzId/Preview" element={<QuizPreview />} /> */}
           </Routes>
         </div>
